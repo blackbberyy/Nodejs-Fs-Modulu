@@ -1,0 +1,39 @@
+FS MODÜLÜ
+Node.js'deki fs (file system) modülü, dosya işlemleri yapmak için kullanılan bir modüldür. Bu modül, dosya ve klasörlerle ilgili işlemler yapmak için bir dizi fonksiyon sağlar. fs modülü, dosya okuma, yazma, silme, taşıma ve klasör oluşturma ve silme gibi çeşitli işlemleri gerçekleştirebilir.
+Dosya okuma: fs.readFile() fonksiyonu ile bir dosyayı okuyabilirsiniz. Örneğin, aşağıdaki kod ile 'ornek.txt' dosyasındaki metni okuyabilirsiniz:
+const fs = require('fs');
+fs.readFile('ornek.txt', (err, data) => {
+  if (err) throw err;
+  console.log(data.toString());
+});
+
+Dosya yazma: fs.writeFile() fonksiyonu ile bir dosyaya veri yazabilirsiniz. Örneğin, aşağıdaki kod ile 'ornek.txt' dosyasına "Merhaba Dünya!" yazabilirsiniz:
+const fs = require('fs');
+fs.writeFile('ornek.txt', 'Merhaba Dünya!', (err) => {
+  if (err) throw err;
+  console.log('Dosya yazıldı.');
+});
+
+Dosya silme: fs.unlink() fonksiyonu ile bir dosyayı silebilirsiniz. Örneğin, aşağıdaki kod ile 'ornek.txt' dosyasını silebilirsiniz:
+const fs = require('fs');
+fs.unlink('ornek.txt', (err) => {
+  if (err) throw err;
+  console.log('Dosya silindi.');
+});
+
+Dizin oluşturma: fs.mkdir() fonksiyonu ile bir dizin oluşturabilirsiniz. Örneğin, aşağıdaki kod ile 'dizin' adında bir dizin oluşturabilirsiniz:
+const fs = require('fs');
+fs.mkdir('dizin', (err) => {
+  if (err) throw err;
+  console.log('Dizin oluşturuldu.');
+});
+
+Dizin içeriğini listeleme: fs.readdir() fonksiyonu ile bir dizinin içeriğini listeyebilirsiniz. Örneğin, aşağıdaki kod ile 'dizin' dizinindeki dosyaların listesini alabilirsiniz:
+const fs = require('fs');
+fs.readdir('dizin', (err, files) => {
+  if (err) throw err;
+  console.log(files);
+});
+
+fs.appendFile(): Bir dosyanın sonuna veri eklemek için kullanılır. Üç parametre alır: dosya yolu, eklenecek veri ve bir geri çağırma fonksiyonu. Geri çağırma fonksiyonu, verinin dosyaya ekleneip eklenemediğini ve bir hata nesnesi döndürür.
+fs.rmdir(): Bir klasörü silmek için kullanılır. İki parametre alır: klasör yolu ve bir geri çağırma fonksiyonu. Geri çağırma fonksiyonu, klasörün silinip silinemediğini ve bir hata nesnesi döndürür.
